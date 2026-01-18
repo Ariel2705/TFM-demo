@@ -181,12 +181,17 @@ def main():
     if not (results_dir / 'default-measures.json').exists():
         results_dir = Path(__file__).parent.parent / 'results'
     
-    # Cargar datos
+    # Cargar datos (intentar versión v2 primero)
     try:
-        with open(results_dir / 'default-measures.json') as f:
+        default_file = 'default-measures-v2.json' if (results_dir / 'default-measures-v2.json').exists() else 'default-measures.json'
+        custom_file = 'custom-measures-v2.json' if (results_dir / 'custom-measures-v2.json').exists() else 'custom-measures.json'
+        
+        with open(results_dir / default_file) as f:
             default_data = json.load(f)
-        with open(results_dir / 'custom-measures.json') as f:
+        with open(results_dir / custom_file) as f:
             custom_data = json.load(f)
+            
+        print(f"📁 Usando archivos: {default_file} y {custom_file}\n")
     except FileNotFoundError as e:
         print(f"Error: Archivos de métricas no encontrados en {results_dir}")
         print(f"Detalle: {e}")

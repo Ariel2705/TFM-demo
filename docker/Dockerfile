@@ -1,12 +1,12 @@
 # Dockerfile para SonarQube - TFM Demo
-# Versión Community Edition con configuraciones para análisis de seguridad
+# Versión LTS (Long Term Support) Community Edition con configuraciones para análisis de seguridad
 
-FROM sonarqube:10.4-community
+FROM sonarqube:lts-community
 
 # Metadata
 LABEL maintainer="TFM SAST Analysis"
-LABEL description="SonarQube configurado para análisis OWASP Top 10 e ISO 25010"
-LABEL version="1.0"
+LABEL description="SonarQube LTS configurado para análisis OWASP Top 10 e ISO 25010"
+LABEL version="2.0-lts"
 
 # Variables de entorno para optimización
 ENV SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true

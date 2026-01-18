@@ -23,11 +23,12 @@ services:
       timeout: 5s
       retries: 5
 
-  # SonarQube Community Edition
+  # SonarQube LTS (Long Term Support) Community Edition
   sonarqube:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: sonarqube:lts-community
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     container_name: tfm-sonarqube
     restart: unless-stopped
     depends_on:
