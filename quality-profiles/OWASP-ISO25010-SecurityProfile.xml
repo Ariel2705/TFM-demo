@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Quality Profile: OWASP-ISO25010 Security Profile
+  Descripción: Profile personalizado alineado con OWASP Top 10 2021 e ISO/IEC 25010
+  Autor: TFM - Análisis Comparativo de Herramientas SAST
+  Fecha: Enero 2026
+  
+  Este perfil incluye:
+  - Todas las reglas de seguridad alineadas con OWASP Top 10 2021
+  - Reglas de calidad según ISO/IEC 25010
+  - Severidades ajustadas según impacto en seguridad
+-->
+<profile>
+  <name>OWASP-ISO25010-Security</name>
+  <language>java</language>
+  <rules>
+    
+    <!-- ====================================================================== -->
+    <!-- A01:2021 - Broken Access Control -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5332</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: HTTP sin cifrar expone datos sensibles. OWASP A01. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S4502</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: CSRF permite acciones no autorizadas. OWASP A01. ISO 25010: Security/Authenticity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5131</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Path traversal permite acceso no autorizado a archivos. OWASP A01. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2612</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Permisos de archivos incorrectos facilitan acceso no autorizado. OWASP A01. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5443</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Comandos OS sin validación = ejecución arbitraria. OWASP A01/A03. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2245</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: PRNG débiles comprometen tokens/sesiones. OWASP A01/A07. ISO 25010: Security/Authenticity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5145</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Log injection puede ocultar actividad maliciosa. OWASP A01/A09. ISO 25010: Security/Accountability -->
+    
+    <!-- ====================================================================== -->
+    <!-- A02:2021 - Cryptographic Failures -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2278</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: DES es criptográficamente débil y rompible. OWASP A02. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5542</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Modos de cifrado inseguros (ECB) no protegen patrones. OWASP A02. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S4426</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Claves criptográficas débiles facilitan ataques de fuerza bruta. OWASP A02. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5547</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Algoritmos criptográficos débiles son vulnerables. OWASP A02. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2257</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Criptografía personalizada suele tener vulnerabilidades. OWASP A02. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S4790</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Hash inadecuado compromete integridad de datos. OWASP A02/A08. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5344</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Contraseñas en texto plano = compromiso total. OWASP A02/A07. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2053</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Hash sin salt facilita ataques rainbow table. OWASP A02. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1313</key>
+      <priority>MINOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: IPs hardcodeadas dificultan portabilidad. OWASP A05. ISO 25010: Portability/Adaptability -->
+    
+    <!-- ====================================================================== -->
+    <!-- A03:2021 - Injection -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S3649</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: SQL injection = acceso/modificación no autorizada de BD. OWASP A03. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2077</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Concatenación SQL facilita inyección. OWASP A03. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5146</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: LDAP injection compromete autenticación. OWASP A03. ISO 25010: Security/Authenticity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2078</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Deserialización LDAP puede ejecutar código arbitrario. OWASP A03/A08. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5135</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: XPath injection expone datos XML sensibles. OWASP A03. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2076</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: OS command injection = ejecución remota de código. OWASP A03. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5147</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: XSS compromete usuarios y sesiones. OWASP A03. ISO 25010: Security/Integrity -->
+    
+    <!-- ====================================================================== -->
+    <!-- A04:2021 - Insecure Design -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5527</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Sin verificación hostname = Man-in-the-Middle. OWASP A04/A02. ISO 25010: Security/Authenticity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S4830</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Certificados no verificados = conexiones inseguras. OWASP A04/A02. ISO 25010: Security/Authenticity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2068</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Credenciales hardcodeadas = compromiso en repositorios. OWASP A04/A07. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S6437</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Datos sensibles en logs = exposición información. OWASP A04/A09. ISO 25010: Security/Confidentiality -->
+    
+    <!-- ====================================================================== -->
+    <!-- A05:2021 - Security Misconfiguration -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5122</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: CORS permisivo permite acceso no autorizado. OWASP A05/A01. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S3330</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Headers HTTP inseguros facilitan ataques. OWASP A05. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5693</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: XXE permite lectura archivos/SSRF. OWASP A05. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2755</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Parsers XML vulnerables a XXE. OWASP A05. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S4423</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Protocolos SSL/TLS débiles son interceptables. OWASP A05/A02. ISO 25010: Security/Confidentiality -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5659</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: JWT sin firma = tokens falsificables. OWASP A05/A08. ISO 25010: Security/Authenticity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5808</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Open redirects facilitan phishing. OWASP A05/A01. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S4792</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Logs mal configurados afectan auditoría. OWASP A05/A09. ISO 25010: Security/Accountability -->
+    
+    <!-- ====================================================================== -->
+    <!-- A07:2021 - Identification and Authentication Failures -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5801</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Session management débil facilita secuestro. OWASP A07. ISO 25010: Security/Authenticity -->
+    
+    <!-- ====================================================================== -->
+    <!-- A08:2021 - Software and Data Integrity Failures -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2091</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Deserialización insegura = ejecución código remoto. OWASP A08. ISO 25010: Security/Integrity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5042</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Zip bombs causan DoS. OWASP A08. ISO 25010: Security/Availability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5301</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Deserialización de datos no confiables = RCE. OWASP A08. ISO 25010: Security/Integrity -->
+    
+    <!-- ====================================================================== -->
+    <!-- A10:2021 - Server-Side Request Forgery (SSRF) -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S5144</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: SSRF permite acceso recursos internos. OWASP A10. ISO 25010: Security/Confidentiality -->
+    
+    <!-- ====================================================================== -->
+    <!-- ISO/IEC 25010 - Reliability (Fiabilidad) -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1181</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Capturar Throwable oculta errores críticos. ISO 25010: Reliability/Fault Tolerance -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1166</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Perder stack traces dificulta debugging. ISO 25010: Reliability/Recoverability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2259</key>
+      <priority>BLOCKER</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: NullPointerException causa fallos en runtime. ISO 25010: Reliability/Maturity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2583</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Condiciones constantes indican lógica errónea. ISO 25010: Reliability/Maturity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S3655</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Optional.get() sin check causa excepciones. ISO 25010: Reliability/Fault Tolerance -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1168</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Retornar null genera NPE en consumidores. ISO 25010: Reliability/Fault Tolerance -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1854</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Dead stores indican lógica no utilizada/errónea. ISO 25010: Reliability/Maturity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S2164</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Overflow en matemáticas causa resultados incorrectos. ISO 25010: Reliability/Accuracy -->
+    
+    <!-- ====================================================================== -->
+    <!-- ISO/IEC 25010 - Maintainability (Mantenibilidad) -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S3776</key>
+      <priority>CRITICAL</priority>
+      <parameters>
+        <parameter>
+          <key>threshold</key>
+          <value>15</value>
+        </parameter>
+      </parameters>
+    </rule>
+    <!-- Justificación: Alta complejidad cognitiva dificulta mantenimiento. ISO 25010: Maintainability/Analyzability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1541</key>
+      <priority>CRITICAL</priority>
+      <parameters>
+        <parameter>
+          <key>threshold</key>
+          <value>25</value>
+        </parameter>
+      </parameters>
+    </rule>
+    <!-- Justificación: Complejidad ciclomática alta = difícil testing. ISO 25010: Maintainability/Testability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1142</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Múltiples returns dificultan seguimiento. ISO 25010: Maintainability/Analyzability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1067</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Expresiones complejas reducen legibilidad. ISO 25010: Maintainability/Understandability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S134</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Anidamiento excesivo dificulta comprensión. ISO 25010: Maintainability/Analyzability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S138</key>
+      <priority>MAJOR</priority>
+      <parameters>
+        <parameter>
+          <key>max</key>
+          <value>100</value>
+        </parameter>
+      </parameters>
+    </rule>
+    <!-- Justificación: Funciones largas violan Single Responsibility. ISO 25010: Maintainability/Modifiability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1448</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Muchos métodos indican responsabilidad excesiva. ISO 25010: Maintainability/Modularity -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1134</key>
+      <priority>INFO</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: FIXMEs indican problemas pendientes. ISO 25010: Maintainability/Analyzability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1135</key>
+      <priority>INFO</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: TODOs indican funcionalidad incompleta. ISO 25010: Maintainability/Completeness -->
+    
+    <!-- ====================================================================== -->
+    <!-- ISO/IEC 25010 - Performance Efficiency (Eficiencia) -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1149</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Colecciones ineficientes afectan performance. ISO 25010: Performance/Time Behavior -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1155</key>
+      <priority>MINOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: isEmpty() es más eficiente que size()==0. ISO 25010: Performance/Time Behavior -->
+    
+    <!-- ====================================================================== -->
+    <!-- ISO/IEC 25010 - Portability (Portabilidad) -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1075</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Rutas hardcodeadas no son portables entre sistemas. ISO 25010: Portability/Adaptability -->
+    
+    <!-- ====================================================================== -->
+    <!-- ISO/IEC 25010 - Usability (Usabilidad) -->
+    <!-- ====================================================================== -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S100</key>
+      <priority>MINOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Nombres de métodos claros mejoran comprensión. ISO 25010: Usability/Learnability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S101</key>
+      <priority>MINOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Nombres de clases estándar facilitan lectura. ISO 25010: Usability/Learnability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1172</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Parámetros no usados confunden intención. ISO 25010: Usability/Understandability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1186</key>
+      <priority>CRITICAL</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Métodos vacíos indican implementación incompleta. ISO 25010: Functional Suitability/Completeness -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1481</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Variables no usadas causan confusión. ISO 25010: Maintainability/Analyzability -->
+    
+    <rule>
+      <repositoryKey>java</repositoryKey>
+      <key>S1068</key>
+      <priority>MAJOR</priority>
+      <parameters/>
+    </rule>
+    <!-- Justificación: Campos privados no usados = código muerto. ISO 25010: Maintainability/Modifiability -->
+    
+  </rules>
+</profile>

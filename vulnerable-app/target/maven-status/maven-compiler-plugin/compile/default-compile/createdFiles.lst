@@ -1,0 +1,10 @@
+com/tfm/demo/HardcodedCredentials.class
+com/tfm/demo/WeakCryptography.class
+com/tfm/demo/InsecureSSL$2.class
+com/tfm/demo/InjectionVulnerabilities.class
+com/tfm/demo/InsecureDeserialization.class
+com/tfm/demo/WeakRandomness.class
+com/tfm/demo/InsecureSSL$1.class
+com/tfm/demo/InsecureSSL.class
+com/tfm/demo/PathTraversal.class
+com/tfm/demo/XSSVulnerabilities.class

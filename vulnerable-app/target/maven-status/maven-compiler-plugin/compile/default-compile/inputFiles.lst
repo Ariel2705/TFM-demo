@@ -1,0 +1,8 @@
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/InsecureDeserialization.java
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/XSSVulnerabilities.java
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/HardcodedCredentials.java
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/WeakCryptography.java
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/InsecureSSL.java
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/WeakRandomness.java
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/PathTraversal.java
+/Users/ariel/PersonalDevs/sast-architecture/tfm-demo/vulnerable-app/src/main/java/com/tfm/demo/InjectionVulnerabilities.java
