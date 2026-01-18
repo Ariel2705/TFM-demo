@@ -1,0 +1,109 @@
+====================================================================================================
+REGLAS RECOMENDADAS PARA AGREGAR AL QUALITY PROFILE CUSTOM
+====================================================================================================
+
+Total de reglas adicionales recomendadas: 15
+
+📌 java:S5332 - CRITICAL
+   Nombre: Using clear-text protocols is security-sensitive
+   OWASP: A02:2021 - Cryptographic Failures
+   ISO: Security - Confidentiality
+   Justificación: HTTP, FTP, Telnet transmiten datos sin cifrar. Permite MITM attacks.
+
+📌 java:S4426 - CRITICAL
+   Nombre: Cryptographic keys should be robust
+   OWASP: A02:2021 - Cryptographic Failures
+   ISO: Security - Confidentiality
+   Justificación: Llaves criptográficas débiles (<2048 bits RSA) son vulnerables a ataques.
+
+📌 java:S5527 - CRITICAL
+   Nombre: Server hostnames should be verified during SSL/TLS connections
+   OWASP: A02:2021 - Cryptographic Failures
+   ISO: Security - Authenticity
+   Justificación: Sin verificar hostname permite MITM attacks en SSL/TLS.
+
+📌 java:S2077 - CRITICAL
+   Nombre: Formatting SQL queries is security-sensitive
+   OWASP: A03:2021 - Injection
+   ISO: Security - Integrity
+   Justificación: String formatting en SQL permite injection. Usar PreparedStatement.
+
+📌 java:S5131 - BLOCKER
+   Nombre: Endpoints should not be vulnerable to reflected XSS
+   OWASP: A03:2021 - Injection
+   ISO: Security - Integrity
+   Justificación: Input del usuario reflejado sin sanitizar permite XSS attacks.
+
+📌 java:S4790 - CRITICAL
+   Nombre: Hashing data is security-sensitive
+   OWASP: A02:2021 - Cryptographic Failures
+   ISO: Security - Confidentiality
+   Justificación: MD5, SHA-1 son criptográficamente rotos. Usar SHA-256+.
+
+📌 java:S2245 - CRITICAL
+   Nombre: Using pseudorandom number generators is security-sensitive
+   OWASP: A02:2021 - Cryptographic Failures
+   ISO: Security - Confidentiality
+   Justificación: Random() no es criptográficamente seguro. Usar SecureRandom.
+
+📌 java:S4423 - CRITICAL
+   Nombre: Weak SSL/TLS protocols should not be used
+   OWASP: A02:2021 - Cryptographic Failures
+   ISO: Security - Confidentiality
+   Justificación: SSLv3, TLS 1.0/1.1 tienen vulnerabilidades conocidas.
+
+📌 java:S5443 - BLOCKER
+   Nombre: Operating system commands should not be vulnerable to injection
+   OWASP: A03:2021 - Injection
+   ISO: Security - Integrity
+   Justificación: Runtime.exec() con input del usuario permite command injection.
+
+📌 java:S4507 - MAJOR
+   Nombre: Delivering code in production with debug features activated is security-sensitive
+   OWASP: A05:2021 - Security Misconfiguration
+   ISO: Security - Confidentiality
+   Justificación: Debug mode expone información sensible del sistema.
+
+📌 java:S5135 - BLOCKER
+   Nombre: Deserialization should not be vulnerable to injection attacks
+   OWASP: A08:2021 - Software and Data Integrity Failures
+   ISO: Security - Integrity
+   Justificación: Deserialización de datos no confiables permite RCE.
+
+📌 java:S5144 - BLOCKER
+   Nombre: Server-side requests should not be vulnerable to SSRF
+   OWASP: A10:2021 - Server-Side Request Forgery
+   ISO: Security - Confidentiality
+   Justificación: SSRF permite acceso a recursos internos no autorizados.
+
+📌 java:S2068 - BLOCKER
+   Nombre: Credentials should not be hard-coded
+   OWASP: A07:2021 - Identification and Authentication Failures
+   ISO: Security - Confidentiality
+   Justificación: Credenciales hardcoded pueden ser extraídas del código.
+
+📌 java:S2092 - CRITICAL
+   Nombre: Cookies should be 'secure'
+   OWASP: A05:2021 - Security Misconfiguration
+   ISO: Security - Confidentiality
+   Justificación: Cookies sin flag 'secure' se transmiten por HTTP.
+
+📌 java:S3330 - CRITICAL
+   Nombre: Cookies should not contain sensitive data
+   OWASP: A01:2021 - Broken Access Control
+   ISO: Security - Confidentiality
+   Justificación: Cookies HttpOnly=false permite robo vía XSS.
+
+====================================================================================================
+
+💡 SIGUIENTES PASOS:
+
+1. Exportar quality profile actual
+2. Agregar estas reglas al XML
+3. Re-importar quality profile mejorado
+4. Crear vulnerabilidades que SOLO el custom detecte
+5. Re-ejecutar análisis y comparar
+
+OBJETIVO: Demostrar que CUSTOM detecta MÁS vulnerabilidades críticas
+         no solo que reduce ruido del DEFAULT
+
