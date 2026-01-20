@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Quality Profile: OWASP-ISO25010 Security Profile
-  Descripción: Profile personalizado alineado con OWASP Top 10 2021 e ISO/IEC 25010
-  Autor: TFM - Análisis Comparativo de Herramientas SAST
-  Fecha: Enero 2026
   
   Este perfil incluye:
   - Todas las reglas de seguridad alineadas con OWASP Top 10 2021
