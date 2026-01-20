@@ -1,8 +1,5 @@
 # Justificación Detallada de Reglas por Severidad
 
-**Documento para TFM**: Análisis de Decisiones de Configuración  
-**Propósito**: Fundamentar técnicamente cada severidad asignada
-
 ---
 
 ## BLOCKER: Riesgo Crítico Inmediato (25 reglas)
@@ -561,26 +558,3 @@ Ejemplos:
 
 **INFO**:
 - TODOs/FIXMEs: Documentación de deuda técnica
-
----
-
-## Conclusión para TFM
-
-### Decisión Basada en Evidencia
-
-Cada severidad asignada considera:
-1. **CVE históricos**: Explotaciones en producción
-2. **Complejidad de ataque**: Análisis con CVSS
-3. **Mitigaciones disponibles**: Frameworks, WAF, network controls
-4. **Impacto regulatorio**: GDPR, PCI DSS, HIPAA
-
-### Diferencia con Profile por Defecto
-
-| Aspecto | Sonar Way (Default) | OWASP-ISO25010 Custom |
-|---------|---------------------|-----------------------|
-| Severidades | Arbitrarias | Fundamentadas en CVEs |
-| Cobertura OWASP | ~60% | 100% |
-| Justificación | No documentada | Cada regla justificada |
-| Trazabilidad | Inexistente | Bidireccional a estándares |
-
-Esta documentación proporciona base académica para defender decisiones de configuración en el TFM.

@@ -110,12 +110,14 @@ Este documento presenta una matriz completa que relaciona:
 
 | Severidad | Cantidad | % Total | Justificación de Criterios |
 |-----------|----------|---------|---------------------------|
-| BLOCKER   | 25       | 35.7%   | **Compromiso inmediato de seguridad o disponibilidad**: RCE, SQL Injection, credenciales expuestas, NPE garantizado. Bloquea deployment. |
-| CRITICAL  | 18       | 25.7%   | **Alto riesgo de seguridad o fallas graves**: Criptografía débil, deserialización insegura, complejidad extrema. Requiere fix urgente. |
-| MAJOR     | 21       | 30.0%   | **Impacto significativo en calidad o seguridad**: Headers faltantes, código muerto, mantenibilidad reducida. Fix en siguiente sprint. |
-| MINOR     | 4        | 5.7%    | **Mejoras de calidad sin impacto funcional**: Convenciones de nombres, optimizaciones menores. Fix cuando sea conveniente. |
-| INFO      | 2        | 2.9%    | **Información de deuda técnica**: TODOs/FIXMEs. No requiere acción inmediata. |
-| **TOTAL** | **70**   | **100%** | |
+| BLOCKER   | 22       | 33.3%   | **Compromiso inmediato de seguridad o disponibilidad**: RCE, SQL Injection, credenciales expuestas, NPE garantizado. Bloquea deployment. |
+| CRITICAL  | 18       | 27.3%   | **Alto riesgo de seguridad o fallas graves**: Criptografía débil, deserialización insegura, complejidad extrema. Requiere fix urgente. |
+| MAJOR     | 20       | 30.3%   | **Impacto significativo en calidad o seguridad**: Headers faltantes, código muerto, mantenibilidad reducida. Fix en siguiente sprint. |
+| MINOR     | 4        | 6.1%    | **Mejoras de calidad sin impacto funcional**: Convenciones de nombres, optimizaciones menores. Fix cuando sea conveniente. |
+| INFO      | 2        | 3.0%    | **Información de deuda técnica**: TODOs/FIXMEs. No requiere acción inmediata. |
+| **TOTAL** | **66**   | **100%** | |
+
+**Nota:** El quality profile fuente (`quality-profiles/OWASP-ISO25010-SecurityProfile.xml`) contiene 66 reglas (22 BLOCKER, 18 CRITICAL, 20 MAJOR, 4 MINOR, 2 INFO). En tu instalación Sonar parece aparecer **54 reglas** activas; si querés, puedo investigar la discrepancia (posibles causas: reglas no disponibles en la versión de Sonar/plug-ins, filtros por lenguaje, o reglas con parámetros que impiden su activación). No infiero la causa sin tu confirmación.
 
 ### Justificación de Criterios de Severidad
 
